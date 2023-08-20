@@ -41,7 +41,7 @@ CREATE TABLE staff(
     staff_type INT NOT NULL, 
     department_id INT ,
 
-    CONSTRAINT department_staff_fk  FOREIGN KEY (department_id) REFERENCES department (department_id) ON DELETE SET NULL ON UPDATE CASCADE,
+    CONSTRAINT department_staff_fk  FOREIGN KEY (department_id) REFERENCES department (department_id) ON DELETE SET NULL ON UPDATE CASCADE
 );
 
 
@@ -62,8 +62,8 @@ CREATE TABLE patient (
 CREATE TABLE patient_record (
     patient_record_id INT PRIMARY KEY AUTO_INCREMENT,
     patient_id INT NOT NULL,
-    record_date DATE NOT NULL
-    sickness  VARCHAR(255) NOT NULL
+    record_date DATE NOT NULL,
+    sickness  VARCHAR(255) NOT NULL,
     staff_id INT NOT NULL ,
     record_result  VARCHAR(32),
     time_in  VARCHAR(32) NOT NULL,
