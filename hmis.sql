@@ -120,4 +120,13 @@ CREATE TABLE patient_medicine (
 
 );
 
+CREATE TABLE service (
+    service_id INT PRIMARY KEY AUTO_INCREMENT,
+    service_name  VARCHAR(128) NOT NULL,
+    description TEXT,
+    amount INT NOT NULL,
+    photo VARCHAR(64),
+    timing VARCHAR(32) 
 
+
+);
