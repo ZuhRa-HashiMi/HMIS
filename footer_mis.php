@@ -1,14 +1,19 @@
-</div>
-      <div class="Latest noprint  col-lg-4 col-md-4 col-sm-4 col-xs-12">
-        shorcut<br>
-		mmis<br>
+	  
+	  </div>
+      <div class="Latest noprint col-lg-4 col-md-4 col-sm-4 col-xs-12">
+        
+		MIS<br>
+		Shortcut <br>
+		option <br>
+		
+		
       </div>
       <div class="clr"></div>
     </div>
   </div>
   <div class="FBG noprint">
     <div class="FBG_resize">
-      <div class="Testimonials  col-lg-4 col-md-4 col-sm-4 col-xs-12">
+      <div class="Testimonials col-lg-4 col-md-4 col-sm-4 col-xs-12">
         <h2>Testimonials </h2>
         <p><em>“Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the. industry's standard dummy”</em></p>
         <p>&nbsp;</p>

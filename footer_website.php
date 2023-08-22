@@ -1,11 +1,12 @@
- </div>
-      <div class="Latest col-lg-4 col-md-4 col-sm-4 col-xs-12">
-        <h2>News</h2>
-        <p><img src="images/img_1.jpg" width="307" height="130" alt="img" /></p>
+	  
+	  </div>
+      <div class="Latest col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <h2>News </h2>
+        <p><img src="images/img_1.jpg" width="100%" height="130" alt="img" /></p>
         <p><a href="#"><strong>Dummy text of the printing</strong></a></p>
-		<h2>ADS</h2>
-        <p>Been the industry's standard dummy text ever since thes, when rinter.Simply dummy text of thorem Ipsum has been the industry's standard dummy text.</p>
-        <p><img src="images/img_2.jpg" width="307" height="130" alt="img" /></p>
+        <h2>Ads</h2>
+		<p>Been the industry's standard dummy text ever since thes, when rinter.Simply dummy text of thorem Ipsum has been the industry's standard dummy text.</p>
+        <p><img src="images/img_2.jpg" width="100%" height="130" alt="img" /></p>
         <p><a href="#"><strong>Text of the printing</strong></a></p>
         <p>Undustry's standard dummy text ever since thes, when rinter.Simply dummy text of thorem Ipsum has been the industry's standard dummy text.</p>
       </div>
@@ -14,7 +15,7 @@
   </div>
   <div class="FBG">
     <div class="FBG_resize">
-      <div class="Testimonials  col-lg-4 col-md-4 col-sm-4 col-xs-12">
+      <div class="Testimonials col-lg-4 col-md-4 col-sm-4 col-xs-12">
         <h2>Testimonials </h2>
         <p><em>“Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the. industry's standard dummy”</em></p>
         <p>&nbsp;</p>

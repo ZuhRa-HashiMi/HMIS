@@ -1,17 +1,19 @@
-<?php 
-  $con = mysqli_connect("localhost", "root", "");
-	mysqli_select_db($con, "script");
-    if (!isset($_SESSION)) {
-	   session_start();
-	   }
-	   
+<?php
 
-	   
-    function getValue($value) {
+	$con = mysqli_connect("localhost", "root", "");
+	mysqli_select_db($con, "hmis");
+	
+	if(!isset($_SESSION)) { 
+		session_start();
+	}
+	
+	// Wrapper Function
+	function getValue($value) {
 		global $con;
 		return mysqli_real_escape_string($con, $value);
 	}
-		
+	
+	
 	function checkLevel($admin_level, $website_level, $stock_level, $hr_level, $finance_level, $surgery_level, $pharmacy_level, $laboratoar_level, $blood_bank_level, $patient_level) {
 		
 		$redirect = true;
@@ -71,4 +73,11 @@
 		}
 		
 	}
-  ?>
+	
+	
+	
+	
+	
+	
+	
+?>

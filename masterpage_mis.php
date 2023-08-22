@@ -1,6 +1,4 @@
-<?php require_once("restrict.php"); ?>
 <?php require_once("header.php"); ?>
-
 
 
 

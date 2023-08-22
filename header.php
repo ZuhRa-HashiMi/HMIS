@@ -3,6 +3,13 @@
 	if(!isset($_SESSION)) { 
 		session_start();
 	}
+	
+	if(isset($_SESSION["local"])) {
+		require_once($_SESSION["local"]);
+	}
+	else {
+		require_once("local/en.php");
+	}
 		
 ?>
 <!DOCTYPE html>
@@ -31,14 +38,26 @@
     <link rel="stylesheet" type="text/css" href="sliderengine/amazingslider-1.css">
     <script src="sliderengine/initslider-1.js"></script>
 
-
+<?php if($_SESSION["local"] != "local/en.php") { ?>
+<style type="text/css">
+* {
+	direction:rtl;
+}
+.navbar-nav li {
+	float:right;
+}
+#nav-top {
+	float:right;
+}
+</style>
+<?php } ?>
 	
 </head>
 <body>
 <div class="main">
   <div class="header noprint">
   
-	<?php if(!isset($_SESSION["USER_ID"])) { ?>
+	<?php if(!isset($_SESSION["user_id"])) { ?>
 	<a href="login.php" id="login" class="pull-right">
 		Login 
 	</a>
@@ -47,6 +66,14 @@
 		Logout
 	</a>
 	<?php } ?>
+	
+	<form action="change_language.php" method="get" id="language" style="margin-top:5px;margin-right:5px;float:right;">
+		<select name="lang" onchange="document.getElementById('language').submit();">
+			<option <?php if($_SESSION["local"] == "local/en.php") echo "selected"; ?> value="en">English</option>
+			<option <?php if($_SESSION["local"] == "local/fa.php") echo "selected"; ?> value="fa">دری</option>
+			<option <?php if($_SESSION["local"] == "local/ps.php") echo "selected"; ?> value="ps">پشتو</option>
+		</select>
+	</form>
 	
   
     <div class="block_header">
@@ -74,21 +101,21 @@
             </div>
             <div class="collapse navbar-collapse" id="collapse">
 			
-				<?php if(!isset($_SESSION["USER_ID"])) { ?>
+				<?php if(!isset($_SESSION["user_id"])) { ?>
 			
 				<ul class="nav navbar-nav" id="nav-top">
-                	<li><a href="index.php">Home</a></li>
-                	<li><a href="index.php">Gallery</a></li>
-                	<li><a href="index.php">Services</a></li>
-                	<li><a href="index.php">News</a></li>
-                	<li class="dropdown"><a href="#" data-toggle="dropdown">About Us<span class="caret"></span></a>
+                	<li><a href="index.php"><?php echo $menu_home; ?></a></li>
+                	<li><a href="index.php"><?php echo $menu_gallery; ?></a></li>
+                	<li><a href="index.php"><?php echo $menu_services; ?></a></li>
+                	<li><a href="index.php"><?php echo $menu_news; ?></a></li>
+                	<li class="dropdown"><a href="#" data-toggle="dropdown"><?php echo $menu_aboutus; ?> <span class="caret"></span></a>
 						<ul class="dropdown-menu">
 							<li><a href="#">Information</a></li>
 							<li><a href="#">History</a></li>
 							<li><a href="#">Cheif Biography</a></li>
 						</ul>
 					</li>
-                	<li><a href="index.php">Contuct Us</a></li>                	
+                	<li><a href="index.php"><?php echo $menu_contactus; ?></a></li>                	
                 </ul>
 				
 				<?php } else { ?>

@@ -3,12 +3,7 @@
 	$staff = mysqli_query($con, "SELECT * FROM staff");
 	$row_staff = mysqli_fetch_assoc($staff);
 ?>
-
-
-
-
-<?php require_once("header.php");?>
-
+<?php require_once("header.php"); ?>
 
 
 		
@@ -39,10 +34,6 @@
 		<br><br>
 
 
-
-
-
-
         <h2>Welcome to our website </h2>
         <p><span>Simply dummy text of the printing and typesetting industry.</span></p>
         <div class="bg"></div>
@@ -61,4 +52,5 @@
           <li>Simply dummy text orem Ipsum has  standard dummy text ever since thes, when an unknown. </li>
           <li>Undustry's standard dummy text ever since thes, when rinter.</li>
         </ul>
-        <?php require_once("footer_website.php");?>
+		
+<?php require_once("footer_website.php"); ?>
