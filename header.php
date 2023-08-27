@@ -33,19 +33,7 @@
     <link rel="stylesheet" type="text/css" href="sliderengine/amazingslider-1.css">
     <script src="sliderengine/initslider-1.js"></script>
 
-<?php  { ?>
-<style type="text/css">
-* {
-	direction:rtl;
-}
-.navbar-nav li {
-	float:right;
-}
-#nav-top {
-	float:right;
-}
-</style>
-<?php } ?>
+
 	
 </head>
 <body>
