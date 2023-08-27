@@ -125,7 +125,7 @@
                     	<ul class="dropdown-menu">
                             <li><a href="department_add.php">Add New Department</a></li>
                             <li><a href="department_list.php">Department List</a></li>
-                        	<li><a href="room_add.php">Rooms</a></li>
+                        
                         </ul>                    
                     </li>
                 	<li class="dropdown"><a href="#" data-toggle="dropdown">Patient <span class="caret"></span></a>
@@ -161,29 +161,8 @@
                             <li><a href="track_changes.php">Track Changes</a></li>
                         </ul>                    
                     </li>
-					<li class="dropdown"><a href="#" data-toggle="dropdown">Surgery <span class="caret"></span></a>
-                    	<ul class="dropdown-menu">
-                        	<li><a href="user_add.php">Add New User</a></li>
-                            <li><a href="user_list.php">User Accounts</a></li>
-                            <li><a href="track_changes.php">Track Changes</a></li>
-                        </ul>                    
-                    </li>
-					<li class="dropdown"><a href="#" data-toggle="dropdown">Blood Bank <span class="caret"></span></a>
-                    	<ul class="dropdown-menu">
-                        	<li><a href="user_add.php">Add New User</a></li>
-                            <li><a href="user_list.php">User Accounts</a></li>
-                            <li><a href="track_changes.php">Track Changes</a></li>
-                        </ul>                    
-                    </li>
-					<li class="dropdown"><a href="#" data-toggle="dropdown">Finance <span class="caret"></span></a>
-                    	<ul class="dropdown-menu">
-                        	<li><a href="income_add.php">New Income</a></li>
-                            <li><a href="income_list.php">Income List</a></li>
-                            <li><a href="expense_add.php">New Expense</a></li>
-                            <li><a href="expense_list.php">Expense List</a></li>
-                            <li><a href="salary_list.php">Staff Salary</a></li>
-                        </ul>                    
-                    </li>
+				
+				
 					<li class="dropdown"><a href="#" data-toggle="dropdown">Settings <span class="caret"></span></a>
                     	<ul class="dropdown-menu">
                         	<li><a href="user_list.php">Users</a></li>

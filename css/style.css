@@ -78,6 +78,7 @@ li.bg,
 	font-size:24px;
 	margin:0;
 }
+
 .table {
 	margin-top:5px;
 }
@@ -85,7 +86,6 @@ li.bg,
 .table th {
 	background-color:#CCC;
 }
-
 
 .input-group {
 	width:100%;
@@ -112,5 +112,6 @@ a.btn span {
 		display:none;
 	}
 }
+
 
 
