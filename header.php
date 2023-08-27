@@ -4,12 +4,7 @@
 		session_start();
 	}
 	
-	if(isset($_SESSION["local"])) {
-		require_once($_SESSION["local"]);
-	}
-	else {
-		require_once("local/en.php");
-	}
+
 		
 ?>
 <!DOCTYPE html>
@@ -38,7 +33,7 @@
     <link rel="stylesheet" type="text/css" href="sliderengine/amazingslider-1.css">
     <script src="sliderengine/initslider-1.js"></script>
 
-<?php if($_SESSION["local"] != "local/en.php") { ?>
+<?php  { ?>
 <style type="text/css">
 * {
 	direction:rtl;
@@ -67,14 +62,7 @@
 	</a>
 	<?php } ?>
 	
-	<form action="change_language.php" method="get" id="language" style="margin-top:5px;margin-right:5px;float:right;">
-		<select name="lang" onchange="document.getElementById('language').submit();">
-			<option <?php if($_SESSION["local"] == "local/en.php") echo "selected"; ?> value="en">English</option>
-			<option <?php if($_SESSION["local"] == "local/fa.php") echo "selected"; ?> value="fa">دری</option>
-			<option <?php if($_SESSION["local"] == "local/ps.php") echo "selected"; ?> value="ps">پشتو</option>
-		</select>
-	</form>
-	
+
   
     <div class="block_header">
       <div class="logo"><a href="index.html"><img src="images/logo_1.gif" width="331" border="0" alt="logo" /></a></div>
