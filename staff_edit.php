@@ -22,7 +22,8 @@
 		$gross_salary = getValue($_POST["gross_salary"]);
 		$currency = getValue($_POST["currency"]);
 		$phone = getValue($_POST["phone"]);
-		
+			
+		$address = getValue($_POST["address"]);
 		$email = getValue($_POST["email"]);
 		if($email == "") {
 			$email = " NULL ";
@@ -30,8 +31,7 @@
 		else {
 			$email = "'" . $email . "'";
 		}
-		
-		$address = getValue($_POST["address"]);
+	
 		$hire_date = getValue($_POST["hire_date"]);
 		$staff_type = getValue($_POST["staff_type"]);
 		$department_id = getValue($_POST["department_id"]);
@@ -64,7 +64,7 @@
 			$path = $row_staff["photo"];
 		}
 		
-		$result = mysqli_query($con, "UPDATE staff SET firstname='$firstname', lastname='$lastname', gender=$gender, dob=$dob, nic='$nic', photo='$path', position='$position', gross_salary=$gross_salary, currency='$currency', phone='$phone', email=$email, address='$address', hire_date='$hire_date', staff_type=$staff_type, department_id=$department_id WHERE staff_id = $staff_id");
+		$result = mysqli_query($con, "UPDATE staff SET firstname='$firstname', lastname='$lastname', gender=$gender, dob=$dob, nic='$nic', photo='$path', position='$position', gross_salary=$gross_salary, currency='$currency', phone='$phone',address='$address', email=$email, hire_date='$hire_date', staff_type=$staff_type, department_id=$department_id WHERE staff_id = $staff_id");
 		if($result) {
 			header("location:staff_list.php?edit=done");
 		}

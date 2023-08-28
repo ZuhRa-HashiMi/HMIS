@@ -16,7 +16,8 @@
 		$gross_salary = getValue($_POST["gross_salary"]);
 		$currency = getValue($_POST["currency"]);
 		$phone = getValue($_POST["phone"]);
-		
+		$address = getValue($_POST["address"]);
+
 		$email = getValue($_POST["email"]);
 		if($email == "") {
 			$email = " NULL ";
@@ -25,7 +26,7 @@
 			$email = "'" . $email . "'";
 		}
 		
-		$address = getValue($_POST["address"]);
+		
 		$hire_date = getValue($_POST["hire_date"]);
 		$staff_type = getValue($_POST["staff_type"]);
 		$department_id = getValue($_POST["department_id"]);
@@ -61,7 +62,7 @@
 		}
 		
 		
-		$result = mysqli_query($con, "INSERT INTO staff VALUES (NULL, '$firstname', '$lastname', $gender, $dob, '$nic', '$path', '$position', $gross_salary, '$currency', '$phone', $email, '$address', '$hire_date', $staff_type, $department_id)");
+		$result = mysqli_query($con, "INSERT INTO staff VALUES (NULL, '$firstname', '$lastname', $gender, $dob, '$nic', '$path', '$position', $gross_salary, '$currency', '$phone','$address',  $email,  '$hire_date', $staff_type, $department_id)");
 		if($result) {
 			header("location:staff_list.php?add=done");
 		}
