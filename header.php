@@ -110,17 +110,12 @@
                         	<li><a href="#">Patient List</a></li>
                         	<li><a href="#">Patient Test</a></li>
                         	<li><a href="#">Patient Medicine</a></li>
-                        	<li><a href="#">Patient Surgery</a></li>
-                        	<li><a href="#">Patient Admit</a></li>
                         </ul>                    
                     </li>
 					<li class="dropdown"><a href="#" data-toggle="dropdown">Staff <span class="caret"></span></a>
                     	<ul class="dropdown-menu">
                         	<li><a href="staff_add.php">Add New Staff</a></li>
                             <li><a href="staff_list.php">Staff List</a></li>
-                            <li><a href="attendance_list.php">Staff Attendance</a></li>
-                            <li><a href="overtime_list.php">Staff Overtime</a></li>
-                            <li><a href="salary_list.php">Staff Salary</a></li>
                         </ul>                    
                     </li>
 					<li class="dropdown"><a href="#" data-toggle="dropdown">Pharmacy <span class="caret"></span></a>
@@ -142,11 +137,6 @@
 					<li class="dropdown"><a href="#" data-toggle="dropdown">Settings <span class="caret"></span></a>
                     	<ul class="dropdown-menu">
                         	<li><a href="user_list.php">Users</a></li>
-                        	<li><a href="report_placement.php">Website</a></li>
-                        	<li><a href="report_placement.php">Stock</a></li>
-                        	<li><a href="report_placement.php">Partner</a></li>
-                        	<li><a href="report_placement.php">Student Practice</a></li>
-                        	<li><a href="report_placement.php">Report</a></li>
                         </ul>                    
                     </li>
                 </ul>
