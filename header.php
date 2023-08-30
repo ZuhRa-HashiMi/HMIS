@@ -106,7 +106,7 @@
                     </li>
                 	<li class="dropdown"><a href="#" data-toggle="dropdown">Patient <span class="caret"></span></a>
                     	<ul class="dropdown-menu">
-							<li><a href="#">Register New Patient</a></li>
+							<li><a href="patient_add.php">Register New Patient</a></li>
                         	<li><a href="#">Patient List</a></li>
                         	<li><a href="#">Patient Test</a></li>
                         	<li><a href="#">Patient Medicine</a></li>
