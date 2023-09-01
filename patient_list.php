@@ -35,7 +35,7 @@
 <?php if(isset($_GET["delete"])) { ?>
 	<div class="alert alert-success alert-dismissable">
 		<button class="close" data-dismiss="alert" area-hidden="true">&times;</button>
-		Selected paatient has been successfully deleted!
+		Selected patient has been successfully deleted!
 	</div>
 <?php } ?>
 
