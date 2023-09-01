@@ -76,6 +76,7 @@
 		<th>Test Name</th>
         <th>Test Type</th>
         <th>Test Price</th>
+        <th>Normal Result</th>
 		<th>Edit</th>
 		<th>Delete</th>
 	</tr>
@@ -86,6 +87,7 @@
 			<td><?php echo $row_test["test_name"]; ?></td>
             <td><?php echo $row_test["test_type"]; ?></td>
             <td><?php echo $row_test["price"]; ?></td>
+            <td><?php echo $row_test["normal_result"]; ?></td>
 			<td>
 				<a href="test_edit.php?test_id=<?php echo $row_test["test_id"]; ?>">
 					<span class="glyphicon glyphicon-edit"></span>
