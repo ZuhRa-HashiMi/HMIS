@@ -120,8 +120,8 @@
                     </li>
 					<li class="dropdown"><a href="#" data-toggle="dropdown">Pharmacy <span class="caret"></span></a>
                     	<ul class="dropdown-menu">
-                        	<li><a href="placement_add.php">New Placement</a></li>
-                            <li><a href="placement_list.php">Placement List</a></li>
+                        	<li><a href="medicine_add.php">Add New Medicine</a></li>
+                            <li><a href="medicine_list.php">Medicine List</a></li>
                             <li><a href="placement_document.php">Placement Document</a></li>
                         </ul>                    
                     </li>
