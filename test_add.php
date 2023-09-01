@@ -54,7 +54,7 @@
 				<span class="input-group-addon">
 					Test Type:
 				</span>
-				<input required type="text" name="test_typpe" class="form-control">
+				<input required type="text" name="test_type" class="form-control">
 			</div>
 			
 

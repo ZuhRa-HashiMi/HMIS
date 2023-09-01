@@ -127,8 +127,8 @@
                     </li>
 					<li class="dropdown"><a href="#" data-toggle="dropdown">Laboratoar <span class="caret"></span></a>
                     	<ul class="dropdown-menu">
-                        	<li><a href="test_add.php">All Test</a></li>
-                            <li><a href="user_list.php">User Accounts</a></li>
+                        	<li><a href="test_add.php">Add New Test</a></li>
+                            <li><a href="test_list.php">Test List</a></li>
                             <li><a href="track_changes.php">Track Changes</a></li>
                         </ul>                    
                     </li>
