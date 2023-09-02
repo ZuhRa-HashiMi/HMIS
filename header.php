@@ -108,7 +108,8 @@
                     	<ul class="dropdown-menu">
 							<li><a href="patient_add.php">Register New Patient</a></li>
                         	<li><a href="patient_list.php">Patient List</a></li>
-                        	<li><a href="patient_record_add.php">Patient Record</a></li>
+                        	<li><a href="patient_record_add.php">Add Patient Record</a></li>
+                          <li><a href="patient_record_list.php">Patient Record List</a></li>
                         	<li><a href="#">Patient Medicine</a></li>
                         </ul>                    
                     </li>
