@@ -13,6 +13,10 @@
 
 	$allpatient_test = mysqli_query($con, "SELECT * FROM patient_test LEFT JOIN patient ON patient.patient_id = patient_test.patient_id");
 	$row_allpatient_test = mysqli_fetch_assoc($allpatient_test);
+
+	
+	$alltest = mysqli_query($con, "SELECT * FROM patient_test LEFT JOIN test ON test.test_id = test.test_id");
+	$row_alltest = mysqli_fetch_assoc($alltest);
 	
 	$totalrows = mysqli_num_rows($allpatient_test);
 	$rows_per_page = 7;
@@ -20,7 +24,11 @@
 
 	$offset = ($page - 1) * $rows_per_page;
 	
-	$patient_test = mysqli_query($con, "SELECT * FROM patient_test LEFT JOIN patient ON patient.patient_id = patient_test.patient_id LIMIT $offset, $rows_per_page");
+	$patient_test = mysqli_query($con, "SELECT *, test.test_name, test.test_id FROM patient_test LEFT JOIN patient ON patient.patient_id = patient_test.patient_id LEFT JOIN test ON test.test_id = patient_test.test_id LIMIT $offset, $rows_per_page");
+
+	$row_patient_test = mysqli_fetch_assoc($patient_test);
+
+	$test = mysqli_query($con, "SELECT * FROM patient_test LEFT JOIN test ON test.test_id = patient_test.test_id LIMIT $offset, $rows_per_page");
 	$row_patient_test = mysqli_fetch_assoc($patient_test);
 
 ?>
@@ -65,6 +73,8 @@
 	<tr>
 		<th>S/N</th>
 		<th>Patient ID</th>
+		<th>Test ID</th>
+		<th>Test Name</th>
 		<th>Test Date</th>
 		<th>Test Result</th>
 		<th class="noprint">Edit</th>
@@ -75,6 +85,8 @@
 	<tr>
 		<td><?php echo $x++; ?></td>
 		<td><?php echo $row_patient_test["patient_id"]; ?></td>
+		<td><?php echo $row_patient_test["test_id"]; ?></td>
+		<td><?php echo $row_patient_test["test_name"]; ?></td>
 		<td><?php echo $row_patient_test["test_date"]; ?></td>
 		<td><?php echo $row_patient_test["test_result"]; ?></td>
    
