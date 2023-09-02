@@ -61,16 +61,12 @@ CREATE TABLE patient (
 
 CREATE TABLE patient_record (
     patient_record_id INT PRIMARY KEY AUTO_INCREMENT,
-    patient_id INT NOT NULL,
+    patient_id INT,
     record_date DATE NOT NULL,
     sickness  VARCHAR(255) NOT NULL,
-    staff_id INT NOT NULL ,
-    record_result  VARCHAR(32),
-    time_in  VARCHAR(32) NOT NULL,
-    time_out  VARCHAR(32),
+    doctor VARCHAR(32) NOT NULL ,
     
-    CONSTRAINT patient_record_fk FOREIGN KEY (patient_id) REFERENCES patient (patient_id) ON DELETE NO ACTION ON UPDATE CASCADE,
-    CONSTRAINT staff_record_fk FOREIGN KEY (staff_id) REFERENCES staff (staff_id) ON DELETE NO ACTION ON UPDATE CASCADE
+    CONSTRAINT patient_record_fk FOREIGN KEY (patient_id) REFERENCES patient (patient_id) ON DELETE NO ACTION ON UPDATE CASCADE
 
 );
 
