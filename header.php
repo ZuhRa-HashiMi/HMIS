@@ -131,6 +131,7 @@
                         	<li><a href="test_add.php">Add New Test</a></li>
                             <li><a href="test_list.php">Test List</a></li>
                             <li><a href="patient_test_add.php">patient Test</a></li>
+                            <li><a href="patient_test_list.php">patient Test List</a></li>
                         </ul>                    
                     </li>
 				
