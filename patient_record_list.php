@@ -15,7 +15,7 @@
 	$row_allpatient_record = mysqli_fetch_assoc($allpatient_record);
 	
 	$totalrows = mysqli_num_rows($allpatient_record);
-	$rows_per_page = 2;
+	$rows_per_page = 7;
 	$totalpage = ceil($totalrows / $rows_per_page);
 
 	$offset = ($page - 1) * $rows_per_page;
