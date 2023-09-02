@@ -106,10 +106,10 @@
                     </li>
                 	<li class="dropdown"><a href="#" data-toggle="dropdown">Patient <span class="caret"></span></a>
                     	<ul class="dropdown-menu">
-							<li><a href="patient_add.php">Register New Patient</a></li>
-                        	<li><a href="patient_list.php">Patient List</a></li>
-                        	<li><a href="patient_record_add.php">Add Patient Record</a></li>
-                          <li><a href="patient_record_list.php">Patient Record List</a></li>
+							<li><a href="patient_add.php">New Patient Registration</a></li>
+                        	<li><a href="patient_list.php">List of patients prior to Doctor visit</a></li>
+                        	<li><a href="patient_record_add.php">Add Patient information</a></li>
+                          <li><a href="patient_record_list.php">List of patient post to Doctor visit</a></li>
                         	<li><a href="#">Patient Medicine</a></li>
                         </ul>                    
                     </li>
