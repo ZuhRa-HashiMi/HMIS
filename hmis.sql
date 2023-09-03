@@ -96,23 +96,22 @@ CREATE TABLE medicine (
     medicine_name VARCHAR(64) NOT NULL,
     description VARCHAR(255),
     form VARCHAR(32) NOT NULL,
-    quantity INT NOT NULL,
-    unitprice INT NOT NULL,
+    quantity VARCHAR(68) NOT NULL,
+    unitprice VARCHAR(32) NOT NULL,
     expire_date DATE NOT NULL
-
+kk
 );
 
 CREATE TABLE patient_medicine (
     patient_medicine_id INT PRIMARY KEY AUTO_INCREMENT,
     patient_id INT NOT NULL ,
-    medicine_id INT NOT NULL,
+    medicine  VARCHAR(255) NOT NULL,
     quantity INT NOT NULL,
     unitprice  INT NOT NULL,
     totalprice INT NOT NULL,
     apply_date DATE NOT NULL,
 
-    CONSTRAINT medicine_id_fk FOREIGN KEY (patient_id) REFERENCES patient (patient_id),
-    CONSTRAINT patient_medicine_fk FOREIGN KEY (medicine_id) REFERENCES medicine (medicine_id)
+    CONSTRAINT medicine_id_fk FOREIGN KEY (patient_id) REFERENCES patient (patient_id)
 
 );
 

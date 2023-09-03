@@ -123,7 +123,8 @@
                     	<ul class="dropdown-menu">
                         	<li><a href="medicine_add.php">Add New Medicine</a></li>
                             <li><a href="medicine_list.php">Medicine List</a></li>
-                            <li><a href="placement_document.php">Placement Document</a></li>
+                            <li><a href="patient_medicine_add.php">Add Patient Medicine</a></li>
+                            <li><a href="patient_medicine_list.php">List of Patient Medicine</a></li>
                         </ul>                    
                     </li>
 					<li class="dropdown"><a href="#" data-toggle="dropdown">Laboratoar <span class="caret"></span></a>
