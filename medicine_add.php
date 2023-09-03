@@ -6,7 +6,7 @@
 	
 	if(isset($_POST["medicine_name"])) {
 		$medicine_name = getValue($_POST["medicine_name"]);
-		$description  = getValue($_POST["description "]);
+		$description  = getValue($_POST["description"]);
 		$form = getValue($_POST["form"]);
 		$quantity = getValue($_POST["quantity"]);
 		$unitprice  = getValue($_POST["unitprice"]);
@@ -95,7 +95,7 @@
 				<input value="<?php echo date("Y-m-d"); ?>" required autocomplete="off" type="text" id="expire_date" name="expire_date" class="form-control">
 			</div>
 			
-			<input type="submit" value="Register Staff" class="btn btn-primary">
+			<input type="submit" value="Register Medicine" class="btn btn-primary">
 			
 			</div>
 			

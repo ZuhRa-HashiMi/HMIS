@@ -1,160 +1,116 @@
 <?php require_once("connection.php"); ?>
 <?php
 
-	checkLevel(1, 9, 9, 1, 1, 9, 9, 9, 9, 9);
+	$condition = "";
 
-
-	if(isset($_GET["page"])) {
-		$page = $_GET["page"];
+	if(isset($_GET["q"])) {
+		$search = getValue($_GET["q"]);
+		$condition = " WHERE   medicine_name LIKE '%$search%' ";
 	}
-	else {
-		$page = 1;
-	}
-
-	$allmedicine = mysqli_query($con, "SELECT * FROM medicine LEFT JOIN department ON department.department_id = staff.department_id");
-	$row_allstaff = mysqli_fetch_assoc($allstaff);
 	
-	$totalrows = mysqli_num_rows($allstaff);
-	$rows_per_page = 2;
-	$totalpage = ceil($totalrows / $rows_per_page);
-
-	$offset = ($page - 1) * $rows_per_page;
+	$medicine = mysqli_query($con, "SELECT * FROM medicine $condition ORDER BY medicine_id ASC");
+	$row_medicine = mysqli_fetch_assoc($medicine);
 	
-	$staff = mysqli_query($con, "SELECT * FROM staff LEFT JOIN department ON department.department_id = staff.department_id LIMIT $offset, $rows_per_page");
-	$row_staff = mysqli_fetch_assoc($staff);
-
+	$totalRows_medicine = mysqli_num_rows($medicine);
+	
 ?>
 <?php require_once("header.php"); ?>
 
-<a href="#" id="print" class="noprint btn btn-primary pull-right">
-	<span class="glyphicon glyphicon-print"></span> 
-	Print
-</a>
-
-<h2>Staff List</h2>
+<h2>Medicine List</h2>
 
 <?php if(isset($_GET["add"])) { ?>
 	<div class="alert alert-success alert-dismissable">
 		<button class="close" data-dismiss="alert" area-hidden="true">&times;</button>
-		New staff has been successfully added!
+		New Medicine has been successfully added!
 	</div>
 <?php } ?>
 
 <?php if(isset($_GET["edit"])) { ?>
 	<div class="alert alert-success alert-dismissable">
 		<button class="close" data-dismiss="alert" area-hidden="true">&times;</button>
-		Selected staff has been successfully updated!
+		Selected Medicine has been successfully updated!
 	</div>
 <?php } ?>
 
 <?php if(isset($_GET["delete"])) { ?>
 	<div class="alert alert-success alert-dismissable">
 		<button class="close" data-dismiss="alert" area-hidden="true">&times;</button>
-		Selected staff has been successfully deleted!
+		Selected Medicine has been successfully deleted!
 	</div>
 <?php } ?>
 
 <?php if(isset($_GET["error"])) { ?>
 	<div class="alert alert-danger alert-dismissable">
 		<button class="close" data-dismiss="alert" area-hidden="true">&times;</button>
-		Could not delete selected staff!
+		Could not delete selected Medicine!
 	</div>
 <?php } ?>
 
+<form method="get">
+	<div class="input-group">
+		<span class="input-group-addon">
+			Search:
+		</span>
+		<input type="text" name="q" class="form-control">
+		<span class="input-group-btn">
+			<button class="btn btn-primary">
+				<span style="color:white;" class="glyphicon glyphicon-search"></span>
+			</button>
+		</span>
+	</div>
+</form>
+
+<?php if(isset($_GET["q"])) { ?>
+<div style="font-size:18px;">
+	<b>Search for: <?php echo $_GET["q"]; ?></b>
+	<br>
+	<b>Total Result: <?php echo $totalRows_medicine; ?></b>
+</div>
+<?php } ?>
+
+
+<?php if($totalRows_medicine > 0) { ?>
 <table class="table table-striped">
 	<tr>
-		<th>S/N</th>
 		<th>ID</th>
-		<th>Staff Name</th>
-		<th>Photo</th>
-		<th>Position</th>
-		<th>Salary</th>
-		<th>Staff Type</th>
-		<th>Department</th>
-		<th class="noprint">Edit</th>
-		<th class="noprint">Delete</th>
+		<th>Medicine Name</th>
+        <th>Description</th>
+		<th>Form</th>
+		<th>Quantity</th>
+		<th>Unitprice</th>
+		<th>Expire Date</th>
+		<th>Edit</th>
+		<th>Delete</th>
 	</tr>
-
-	<?php $x = 1; do { ?>
-	<tr>
-		<td><?php echo $x++; ?></td>
-		<td><?php echo $row_staff["staff_id"]; ?></td>
-		<td><?php echo $row_staff["firstname"]; ?> <?php echo $row_staff["lastname"]; ?></td>
-		<td><img src="<?php echo $row_staff["photo"]; ?>" width="40" class=""></td>
-		<td><?php echo $row_staff["position"]; ?></td>
-		<td><?php echo $row_staff["gross_salary"]; ?></td>
-		<td><?php
-			
-			if($row_staff["staff_type"] == 1) {
-				echo "Doctor";
-			}
-			else if($row_staff["staff_type"] == 2) {
-				echo "Nurse";
-			}
-			else {
-				echo "Employee";
-			}
-		
-		?></td>
-		<td><?php echo $row_staff["department_name"]; ?></td>
-		<td class="noprint">
-			<a href="staff_edit.php?staff_id=<?php echo $row_staff["staff_id"]; ?>">
-				<span class="glyphicon glyphicon-edit"></span>
-			</a>
-		</td>
-		<td class="noprint">
-			<a class="delete" href="staff_delete.php?staff_id=<?php echo $row_staff["staff_id"]; ?>">
-				<span class="glyphicon glyphicon-trash"></span>
-			</a>
-		</td>
-	</tr>
-	<?php } while($row_staff = mysqli_fetch_assoc($staff)); ?>
+	
+	<?php do { ?>
+		<tr>
+			<td><?php echo $row_medicine["medicine_id"]; ?></td>
+			<td><?php echo $row_medicine["medicine_name"]; ?></td>
+            <td><?php echo $row_medicine["description"]; ?></td>
+			<td><?php echo $row_medicine["form"]; ?></td>
+			<td><?php echo $row_medicine["quantity"]; ?></td>
+			<td><?php echo $row_medicine["unitprice"]; ?></td>
+			<td><?php echo $row_medicine["expire_date"]; ?></td>
+			<td>
+				<a href="medicine_edit.php?medicine_id=<?php echo $row_medicine["medicine_id"]; ?>">
+					<span class="glyphicon glyphicon-edit"></span>
+				</a>
+			</td>
+			<td>
+				<a class="delete" href="medicine_delete.php?medicine_id=<?php echo $row_medicine["medicine_id"]; ?>">
+					<span class="glyphicon glyphicon-trash"></span>
+				</a>
+			</td>
+		</tr>
+	<?php } while($row_medicine = mysqli_fetch_assoc($medicine)); ?>
 	
 </table>
-
-
-<ul class="pagination noprint">
-<?php if($page != 1) { ?>
-	<li><a href="staff_list.php?page=1">
-		First 
-	</a></li>
+<?php } else { ?>
+	<div class="alert alert-warning text-center">
+		<h3 style="border:none;">No Result Found!</h3>
+	</div>
 <?php } ?>
 
-<?php if($page > 1) { ?>
-	<li><a href="staff_list.php?page=<?php echo $page-1; ?>">
-		Previous 
-	</a></li>
-<?php } ?>
-
-<?php if($page < $totalpage) { ?>
-	<li><a href="staff_list.php?page=<?php echo $page+1; ?>">
-		Next
-	</a></li>
-<?php } ?>
-
-<?php if($page != $totalpage) { ?>
-	<li><a href="staff_list.php?page=<?php echo $totalpage; ?>">
-		Last
-	</a></li>
-<?php } ?>
-</ul>
-
-<br>
-
-<ul class="pagination noprint">
-<?php for($x=1; $x<=$totalpage; $x++) { ?>
-	<li>
-		<?php if($x != $page) { ?>
-			<a href="staff_list.php?page=<?php echo $x; ?>">
-				<?php echo $x; ?>
-			</a>
-		<?php } else { ?>
-			<a href="#">
-				<?php echo $x; ?>
-			</a>
-		<?php } ?>
-	</li>
-<?php } ?>
-</ul>
 
 <?php require_once("footer_mis.php"); ?>
