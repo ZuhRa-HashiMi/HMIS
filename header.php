@@ -79,20 +79,7 @@
 			
 				<?php if(!isset($_SESSION["user_id"])) { ?>
 			
-				<ul class="nav navbar-nav" id="nav-top">
-                	<li><a href="index.php"><?php echo $menu_home; ?></a></li>
-                	<li><a href="index.php"><?php echo $menu_gallery; ?></a></li>
-                	<li><a href="index.php"><?php echo $menu_services; ?></a></li>
-                	<li><a href="index.php"><?php echo $menu_news; ?></a></li>
-                	<li class="dropdown"><a href="#" data-toggle="dropdown"><?php echo $menu_aboutus; ?> <span class="caret"></span></a>
-						<ul class="dropdown-menu">
-							<li><a href="#">Information</a></li>
-							<li><a href="#">History</a></li>
-							<li><a href="#">Cheif Biography</a></li>
-						</ul>
-					</li>
-                	<li><a href="index.php"><?php echo $menu_contactus; ?></a></li>                	
-                </ul>
+			
 				
 				<?php } else { ?>
 			

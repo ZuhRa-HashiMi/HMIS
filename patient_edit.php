@@ -19,7 +19,8 @@
         $birth_year = getValue($_POST["birth_year"]);
         $history = getValue($_POST["history"]);
 
-		$result = mysqli_query($con, "UPDATE patient SET firstname='$firstname', lastname='$lastname', province='$province',current_location='$current_location', phone='$phone' gender=$gender, birth_year=$birth_year, history='$history' WHERE patient_id = $patient_id");
+		$result = mysqli_query($con, "UPDATE patient SET firstname='$firstname', lastname='$lastname', province='$province', current_location='$current_location', phone='$phone', gender='$gender', birth_year='$birth_year', history='$history' WHERE patient_id = $patient_id");
+
 		if($result) {
 			header("location:patient_list.php?edit=done");
 		}

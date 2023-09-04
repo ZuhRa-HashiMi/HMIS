@@ -19,16 +19,10 @@
 			
 			$_SESSION["user_type"] = $row_result["user_type"];
 			$_SESSION["admin_level"] = $row_result["admin_level"];
-			$_SESSION["website_level"] = $row_result["website_level"];
-			$_SESSION["stock_level"] = $row_result["stock_level"];
-			$_SESSION["hr_level"] = $row_result["hr_level"];
-			$_SESSION["finance_level"] = $row_result["finance_level"];
-			$_SESSION["surgery_level"] = $row_result["surgery_level"];
 			$_SESSION["pharmacy_level"] = $row_result["pharmacy_level"];
 			$_SESSION["laboratoar_level"] = $row_result["laboratoar_level"];
-			$_SESSION["blood_bank_level"] = $row_result["blood_bank_level"];
-			$_SESSION["patient_level"] = $row_result["patient_level"];
-			
+			$_SESSION["reception_level"] = $row_result["reception_level"];
+
 			header("location:home.php");
 		}
 		else {

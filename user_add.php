@@ -6,17 +6,11 @@
 		$password = getValue($_POST["password"]);
 		$user_type = getValue($_POST["user_type"]);
 		$admin_level = getValue($_POST["admin_level"]);
-		$website_level = getValue($_POST["website_level"]);
-		$stock_level = getValue($_POST["stock_level"]);
-		$hr_level = getValue($_POST["hr_level"]);
-		$finance_level = getValue($_POST["finance_level"]);
-		$surgery_level = getValue($_POST["surgery_level"]);
 		$pharmacy_level = getValue($_POST["pharmacy_level"]);
 		$laboratoar_level = getValue($_POST["laboratoar_level"]);
-		$blood_bank_level = getValue($_POST["blood_bank_level"]);
-		$patient_level = getValue($_POST["patient_level"]);
+		$reception_leval = getValue($_POST["reception_leval"]);
 		
-		$result = mysqli_query($con, "INSERT INTO users VALUES (NULL, '$username', PASSWORD('$password'), $user_type, $admin_level, $website_level, $stock_level, $hr_level, $finance_level, $surgery_level, $pharmacy_level, $laboratoar_level, $blood_bank_level, $patient_level)");
+		$result = mysqli_query($con, "INSERT INTO users VALUES (NULL, '$username', PASSWORD('$password'), $user_type, $admin_level,  $pharmacy_level, $laboratoar_level, $reception_leval)");
 		
 		if($result) {
 			header("location:user_list.php?add=done");
@@ -85,11 +79,13 @@
 				</select>
 			</div>
 			
+	
+			
 			<div class="input-group">
 				<span class="input-group-addon">
-					Website Level:
+					Reception Level:
 				</span>
-				<select name="website_level" class="form-control">
+				<select name="reception_leval" class="form-control">
 					<option value="0">None</option>
 					<option value="1">Read</option>
 					<option value="2">Insert</option>
@@ -98,57 +94,7 @@
 				</select>
 			</div>
 			
-			<div class="input-group">
-				<span class="input-group-addon">
-					Stock Level:
-				</span>
-				<select name="stock_level" class="form-control">
-					<option value="0">None</option>
-					<option value="1">Read</option>
-					<option value="2">Insert</option>
-					<option value="4">Edit</option>
-					<option value="8">Remove</option>
-				</select>
-			</div>
-			
-			<div class="input-group">
-				<span class="input-group-addon">
-					HR Level:
-				</span>
-				<select name="hr_level" class="form-control">
-					<option value="0">None</option>
-					<option value="1">Read</option>
-					<option value="2">Insert</option>
-					<option value="4">Edit</option>
-					<option value="8">Remove</option>
-				</select>
-			</div>
-			
-			<div class="input-group">
-				<span class="input-group-addon">
-					Finance Level:
-				</span>
-				<select name="finance_level" class="form-control">
-					<option value="0">None</option>
-					<option value="1">Read</option>
-					<option value="2">Insert</option>
-					<option value="4">Edit</option>
-					<option value="8">Remove</option>
-				</select>
-			</div>
-			
-			<div class="input-group">
-				<span class="input-group-addon">
-					Surgery Level:
-				</span>
-				<select name="surgery_level" class="form-control">
-					<option value="0">None</option>
-					<option value="1">Read</option>
-					<option value="2">Insert</option>
-					<option value="4">Edit</option>
-					<option value="8">Remove</option>
-				</select>
-			</div>
+	
 			
 			<div class="input-group">
 				<span class="input-group-addon">
@@ -176,32 +122,7 @@
 				</select>
 			</div>
 			
-			<div class="input-group">
-				<span class="input-group-addon">
-					Blood Bank Level:
-				</span>
-				<select name="blood_bank_level" class="form-control">
-					<option value="0">None</option>
-					<option value="1">Read</option>
-					<option value="2">Insert</option>
-					<option value="4">Edit</option>
-					<option value="8">Remove</option>
-				</select>
-			</div>
-			
-			<div class="input-group">
-				<span class="input-group-addon">
-					Patient Level:
-				</span>
-				<select name="patient_level" class="form-control">
-					<option value="0">None</option>
-					<option value="1">Read</option>
-					<option value="2">Insert</option>
-					<option value="4">Edit</option>
-					<option value="8">Remove</option>
-				</select>
-			</div>
-			
+		
 			<input type="submit" class="btn btn-primary" value="Add User">
 			
 		</form>

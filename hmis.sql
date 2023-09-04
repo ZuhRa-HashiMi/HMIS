@@ -8,13 +8,9 @@ CREATE TABLE users(
     password VARCHAR(255) NOT NULL,
     user_type BOOLEAN NOT NULL ,
     admin_level TINYINT NOT NULL DEFAULT 0,
-    stock_level  TINYINT NOT NULL DEFAULT 0,
-    hr_leval  TINYINT NOT NULL DEFAULT 0,
-    finance_level  TINYINT NOT NULL DEFAULT 0,
     pharmacy_level  TINYINT NOT NULL DEFAULT 0,
     laboratoar_level  TINYINT NOT NULL DEFAULT 0,
-    patient_level  TINYINT NOT NULL DEFAULT 0
-
+    reception_leval  TINYINT NOT NULL DEFAULT 0
 
 );
 
@@ -66,7 +62,7 @@ CREATE TABLE patient_record (
     sickness  VARCHAR(255) NOT NULL,
     doctor VARCHAR(32) NOT NULL ,
     
-    CONSTRAINT patient_record_fk FOREIGN KEY (patient_id) REFERENCES patient (patient_id) ON DELETE NO ACTION ON UPDATE CASCADE
+    CONSTRAINT patient_record_fk FOREIGN KEY (patient_id) REFERENCES patient (patient_id) ON DELETE CASCADE ON UPDATE CASCADE
 
 );
 
@@ -86,7 +82,7 @@ CREATE TABLE patient_test (
     test_date DATE NOT NULL,
     test_result VARCHAR(255) NOT NULL,
 
-    CONSTRAINT patient_id_fk FOREIGN KEY (patient_id) REFERENCES patient (patient_id),
+    CONSTRAINT patient_id_fk FOREIGN KEY (patient_id) REFERENCES patient (patient_id) ON DELETE CASCADE,
     CONSTRAINT patient_test_fk FOREIGN KEY (test_id) REFERENCES test (test_id)
 );
 
@@ -99,7 +95,6 @@ CREATE TABLE medicine (
     quantity VARCHAR(68) NOT NULL,
     unitprice VARCHAR(32) NOT NULL,
     expire_date DATE NOT NULL
-kk
 );
 
 CREATE TABLE patient_medicine (
@@ -111,7 +106,7 @@ CREATE TABLE patient_medicine (
     totalprice INT NOT NULL,
     apply_date DATE NOT NULL,
 
-    CONSTRAINT medicine_id_fk FOREIGN KEY (patient_id) REFERENCES patient (patient_id)
+    CONSTRAINT medicine_id_fk FOREIGN KEY (patient_id) REFERENCES patient (patient_id) ON DELETE CASCADE
 
 );
 
