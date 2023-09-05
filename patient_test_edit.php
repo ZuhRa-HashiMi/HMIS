@@ -32,7 +32,7 @@
             }
         }
 
-        $result = mysqli_query($con, "UPDATE patient_test SET test_id='$test_id', patient_id='$patient_id', test_name='$test_name', test_date='$test_date', test_result='$test_result' WHERE patient_test_id = $patient_test_id");
+        $result = mysqli_query($con, "UPDATE patient_test SET test_id='$test_id', patient_id='$patient_id', test_date='$test_date', test_result='$test_result' WHERE patient_test_id = $patient_test_id");
         if ($result) {
             header("location:patient_test_list.php?edit=done");
         } else {
