@@ -3,7 +3,6 @@
 
 	checkLevel(1, 9, 9, 1, 1, 9, 9, 9, 9, 9);
 
-
 	if(isset($_GET["page"])) {
 		$page = $_GET["page"];
 	}
@@ -61,46 +60,48 @@
 	</div>
 <?php } ?>
 
-<table class="table table-striped">
-	<tr>
-		<th>S/N</th>
-		<th>Patient ID</th>
-		<th>Medicine Name</th>
-		<th>Quantity</th>
-		<th>Unitprice</th>
-        <th>Totalprice</th>
-        <th>Apply Date</th>
-		<th class="noprint">Edit</th>
-		<th class="noprint">Delete</th>
-	</tr>
+<?php if(mysqli_num_rows($patient_medicine) == 0) { ?>
+	<div class="alert alert-warning">
+		No result found.
+	</div>
+<?php } else { ?>
+	<table class="table table-striped">
+		<tr>
+			<th>S/N</th>
+			<th>Patient ID</th>
+			<th>Medicine Name</th>
+			<th>Quantity</th>
+			<th>Unitprice</th>
+	        <th>Totalprice</th>
+	        <th>Apply Date</th>
+			<th class="noprint">Edit</th>
+			<th class="noprint">Delete</th>
+		</tr>
 
-	<?php $x = 1; do { ?>
-	<tr>
-		<td><?php echo $x++; ?></td>
-		<td><?php echo $row_patient_medicine["patient_id"]; ?></td>
-		<td><?php echo $row_patient_medicine["medicine"]; ?></td>
-		<td><?php echo $row_patient_medicine["quantity"]; ?></td>
-        <td><?php echo $row_patient_medicine["unitprice"]; ?></td>
-        <td><?php echo $row_patient_medicine["totalprice"]; ?></td>
-        <td><?php echo $row_patient_medicine["apply_date"]; ?></td>
+		<?php $x = 1; do { ?>
+		<tr>
+			<td><?php echo $x++; ?></td>
+			<td><?php echo $row_patient_medicine["patient_id"]; ?></td>
+			<td><?php echo $row_patient_medicine["medicine"]; ?></td>
+			<td><?php echo $row_patient_medicine["quantity"]; ?></td>
+	        <td><?php echo $row_patient_medicine["unitprice"]; ?></td>
+	        <td><?php echo $row_patient_medicine["totalprice"]; ?></td>
+	        <td><?php echo $row_patient_medicine["apply_date"]; ?></td>
 
-        <td class="noprint">
-			<a href="patient_medicine_edit.php?patient_medicine_id=<?php echo $row_patient_medicine["patient_medicine_id"]; ?>">
-				<span class="glyphicon glyphicon-edit"></span>
-			</a>
-		</td>
-		<td class="noprint">
-			<a class="delete" href="patient_medicine_delete.php?patient_medicine_id=<?php echo $row_patient_medicine["patient_medicine_id"]; ?>">
-				<span class="glyphicon glyphicon-trash"></span>
-			</a>
-		</td>
-	
-	
-	</tr>
-	<?php } while($row_patient_medicine = mysqli_fetch_assoc($patient_medicine)); ?>
-	
-</table>
-
+	        <td class="noprint">
+				<a href="patient_medicine_edit.php?patient_medicine_id=<?php echo $row_patient_medicine["patient_medicine_id"]; ?>">
+					<span class="glyphicon glyphicon-edit"></span>
+				</a>
+			</td>
+			<td class="noprint">
+				<a class="delete" href="patient_medicine_delete.php?patient_medicine_id=<?php echo $row_patient_medicine["patient_medicine_id"]; ?>">
+					<span class="glyphicon glyphicon-trash"></span>
+				</a>
+			</td>
+		</tr>
+		<?php } while($row_patient_medicine = mysqli_fetch_assoc($patient_medicine)); ?>
+	</table>
+<?php } ?>
 
 <ul class="pagination noprint">
 <?php if($page != 1) { ?>
