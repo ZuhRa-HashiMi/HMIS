@@ -3,7 +3,6 @@
 
 	checkLevel(1, 9, 9, 1, 1, 9, 9, 9, 9, 9);
 
-
 	if(isset($_GET["page"])) {
 		$page = $_GET["page"];
 	}
@@ -14,16 +13,15 @@
 	$allpatient_test = mysqli_query($con, "SELECT * FROM patient_test LEFT JOIN patient ON patient.patient_id = patient_test.patient_id");
 	$row_allpatient_test = mysqli_fetch_assoc($allpatient_test);
 
-	
 	$alltest = mysqli_query($con, "SELECT * FROM patient_test LEFT JOIN test ON test.test_id = test.test_id");
 	$row_alltest = mysqli_fetch_assoc($alltest);
-	
+
 	$totalrows = mysqli_num_rows($allpatient_test);
 	$rows_per_page = 7;
 	$totalpage = ceil($totalrows / $rows_per_page);
 
 	$offset = ($page - 1) * $rows_per_page;
-	
+
 	$patient_test = mysqli_query($con, "SELECT *, test.test_name, test.test_id FROM patient_test LEFT JOIN patient ON patient.patient_id = patient_test.patient_id LEFT JOIN test ON test.test_id = patient_test.test_id LIMIT $offset, $rows_per_page");
 
 	$row_patient_test = mysqli_fetch_assoc($patient_test);
@@ -69,45 +67,46 @@
 	</div>
 <?php } ?>
 
-<table class="table table-striped">
-	<tr>
-		<th>S/N</th>
-		<th>Patient ID</th>
-		<th>Test ID</th>
-		<th>Test Name</th>
-		<th>Test Date</th>
-		<th>Test Result</th>
-		<th class="noprint">Edit</th>
-		<th class="noprint">Delete</th>
-	</tr>
+<?php if($row_patient_test === null) { ?>
+    <div class="alert alert-warning">
+        No result found.
+    </div>
+<?php } else { ?>
+    <table class="table table-striped">
+        <tr>
+            <th>S/N</th>
+            <th>Patient ID</th>
+            <th>Test ID</th>
+            <th>Test Name</th>
+            <th>Test Date</th>
+            <th>Test Result</th>
+            <th class="noprint">Edit</th>
+            <th class="noprint">Delete</th>
+        </tr>
 
-	<?php $x = 1; do { ?>
-	<tr>
-		<td><?php echo $x++; ?></td>
-		<td><?php echo $row_patient_test["patient_id"]; ?></td>
-		<td><?php echo $row_patient_test["test_id"]; ?></td>
-		<td><?php echo $row_patient_test["test_name"]; ?></td>
-		<td><?php echo $row_patient_test["test_date"]; ?></td>
-		<td><?php echo $row_patient_test["test_result"]; ?></td>
-   
+        <?php $x = 1; do { ?>
+        <tr>
+            <td><?php echo $x++; ?></td>
+            <td><?php echo $row_patient_test["patient_id"]; ?></td>
+            <td><?php echo $row_patient_test["test_id"]; ?></td>
+            <td><?php echo $row_patient_test["test_name"]; ?></td>
+            <td><?php echo $row_patient_test["test_date"]; ?></td>
+            <td><?php echo $row_patient_test["test_result"]; ?></td>
 
-        <td class="noprint">
-			<a href="patient_test_edit.php?patient_test_id=<?php echo $row_patient_test["patient_test_id"]; ?>">
-				<span class="glyphicon glyphicon-edit"></span>
-			</a>
-		</td>
-		<td class="noprint">
-			<a class="delete" href="patient_test_delete.php?patient_test_id=<?php echo $row_patient_test["patient_test_id"]; ?>">
-				<span class="glyphicon glyphicon-trash"></span>
-			</a>
-		</td>
-	
-	
-	</tr>
-	<?php } while($row_patient_test = mysqli_fetch_assoc($patient_test)); ?>
-	
-</table>
-
+            <td class="noprint">
+                <a href="patient_test_edit.php?patient_test_id=<?php echo $row_patient_test["patient_test_id"]; ?>">
+                    <span class="glyphicon glyphicon-edit"></span>
+                </a>
+            </td>
+            <td class="noprint">
+                <a class="delete" href="patient_test_delete.php?patient_test_id=<?php echo $row_patient_test["patient_test_id"]; ?>">
+                    <span class="glyphicon glyphicon-trash"></span>
+                </a>
+            </td>
+        </tr>
+        <?php } while($row_patient_test = mysqli_fetch_assoc($patient_test)); ?>
+    </table>
+<?php } ?>
 
 <ul class="pagination noprint">
 <?php if($page != 1) { ?>
