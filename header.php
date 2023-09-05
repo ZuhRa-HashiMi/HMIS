@@ -97,7 +97,6 @@
                         	<li><a href="patient_list.php">List of patients prior to Doctor visit</a></li>
                         	<li><a href="patient_record_add.php">Add Patient information</a></li>
                           <li><a href="patient_record_list.php">List of patient post to Doctor visit</a></li>
-                        	<li><a href="#">Patient Medicine</a></li>
                         </ul>                    
                     </li>
 					<li class="dropdown"><a href="#" data-toggle="dropdown">Staff <span class="caret"></span></a>
