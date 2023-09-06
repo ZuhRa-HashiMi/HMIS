@@ -14,10 +14,6 @@
 	$result = mysqli_query($con, "DELETE FROM staff WHERE staff_id = $staff_id");
 	
 	if($result) {
-		if($row_staff["photo"] != "images/staff/user_m.png" && $row_staff["photo"] != "images/staff/user_f.png") {
-			unlink($row_staff["photo"]);
-		}
-		
 		header("location:staff_list.php?delete=done");
 	}
 	else {

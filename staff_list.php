@@ -11,7 +11,7 @@
 
 	$allstaff = mysqli_query($con, "SELECT * FROM staff LEFT JOIN department ON department.department_id = staff.department_id");
 	$totalrows = mysqli_num_rows($allstaff);
-	$rows_per_page = 2;
+	$rows_per_page = 6;
 	$totalpage = ceil($totalrows / $rows_per_page);
 
 	$offset = ($page - 1) * $rows_per_page;
@@ -64,7 +64,7 @@
 			<th>S/N</th>
 			<th>ID</th>
 			<th>Staff Name</th>
-			<th>Photo</th>
+	
 			<th>Position</th>
 			<th>Salary</th>
 			<th>Staff Type</th>
@@ -78,7 +78,7 @@
 				<td><?php echo $x++; ?></td>
 				<td><?php echo $row_staff["staff_id"]; ?></td>
 				<td><?php echo $row_staff["firstname"]; ?> <?php echo $row_staff["lastname"]; ?></td>
-				<td><img src="<?php echo $row_staff["photo"]; ?>" width="40" class=""></td>
+		
 				<td><?php echo $row_staff["position"]; ?></td>
 				<td><?php echo $row_staff["gross_salary"]; ?></td>
 				<td>

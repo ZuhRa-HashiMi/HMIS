@@ -37,34 +37,8 @@
 		$department_id = getValue($_POST["department_id"]);
 		
 		
-		if($_FILES["photo"]["name"] != "") { 
 		
-			$filetype = $_FILES["photo"]["type"];
-			
-			if($filetype == "image/jpeg" || $filetype == "image/png" || $filetype == "image/gif") {
-				if($_FILES["photo"]["size"] <= 4 * 1024 * 1024) {		
-					$path = "images/staff/" . time() . $_FILES["photo"]["name"];		
-					$result = move_uploaded_file($_FILES["photo"]["tmp_name"], $path);
-					
-					if($row_staff["photo"] != "images/staff/user_m.png" && $row_staff["photo"] != "images/staff/user_f.png") {
-						unlink($row_staff["photo"]);
-					}
-					
-				}
-				else {
-					header("location:staff_edit.php?filesize=invalid&staff_id=$staff_id");
-				}
-			}
-			else {
-				header("location:staff_edit.php?filetype=invalid&staff_id=$staff_id");
-			}		
-		
-		}
-		else {
-			$path = $row_staff["photo"];
-		}
-		
-		$result = mysqli_query($con, "UPDATE staff SET firstname='$firstname', lastname='$lastname', gender=$gender, dob=$dob, nic='$nic', photo='$path', position='$position', gross_salary=$gross_salary, currency='$currency', phone='$phone',address='$address', email=$email, hire_date='$hire_date', staff_type=$staff_type, department_id=$department_id WHERE staff_id = $staff_id");
+		$result = mysqli_query($con, "UPDATE staff SET firstname='$firstname', lastname='$lastname', gender=$gender, dob=$dob, nic='$nic', position='$position', gross_salary=$gross_salary, currency='$currency', phone='$phone',address='$address', email=$email, hire_date='$hire_date', staff_type=$staff_type, department_id=$department_id WHERE staff_id = $staff_id");
 		if($result) {
 			header("location:staff_list.php?edit=done");
 		}
@@ -189,15 +163,7 @@
 			
 			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 			
-			<div class="input-group">
-				<span class="input-group-addon">
-					Photo:
-				</span>
-				<input type="file" name="photo" class="form-control">
-				<span class="input-group-addon" style="width:25px;padding:0 2px;">
-					<img src="<?php echo $row_staff["photo"]; ?>" width="25">
-				</span>
-			</div>
+		
 			
 			<div class="input-group">
 				<span class="input-group-addon">

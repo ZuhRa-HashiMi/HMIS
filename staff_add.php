@@ -32,37 +32,8 @@
 		$department_id = getValue($_POST["department_id"]);
 		
 		
-		if($_FILES["photo"]["name"] != "") { 
-		
-			$filetype = $_FILES["photo"]["type"];
-			
-			if($filetype == "image/jpeg" || $filetype == "image/png" || $filetype == "image/gif") {
-				if($_FILES["photo"]["size"] <= 4 * 1024 * 1024) {		
-					$path = "images/staff/" . time() . $_FILES["photo"]["name"];		
-					$result = move_uploaded_file($_FILES["photo"]["tmp_name"], $path);
-					if(!$result) {
-						header("location:staff_add.php?upload=failed");
-					}
-				}
-				else {
-					header("location:staff_add.php?filesize=invalid");
-				}
-			}
-			else {
-				header("location:staff_add.php?filetype=invalid");
-			}		
-		}
-		else {
-			if($gender == 0) {
-				$path = "images/staff/user_m.png";
-			}
-			else {
-				$path = "images/staff/user_f.png";
-			}
-		}
-		
-		
-		$result = mysqli_query($con, "INSERT INTO staff VALUES (NULL, '$firstname', '$lastname', $gender, $dob, '$nic', '$path', '$position', $gross_salary, '$currency', '$phone','$address',  $email,  '$hire_date', $staff_type, $department_id)");
+		$result = mysqli_query($con, "INSERT INTO staff (firstname, lastname, gender, dob, nic, position, gross_salary, currency, phone, email, address, hire_date, staff_type, department_id) VALUES ('$firstname', '$lastname', $gender, '$dob', '$nic', '$position', $gross_salary, '$currency', '$phone', $email, '$address', '$hire_date', $staff_type, $department_id)");
+
 		if($result) {
 			header("location:staff_list.php?add=done");
 		}
@@ -188,12 +159,7 @@
 			
 			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 			
-			<div class="input-group">
-				<span class="input-group-addon">
-					Photo:
-				</span>
-				<input type="file" name="photo" class="form-control">
-			</div>
+		
 			
 			<div class="input-group">
 				<span class="input-group-addon">
